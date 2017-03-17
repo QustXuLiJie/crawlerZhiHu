@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<result>
+	<infos>
+		<!-- 短信数据 (common) -->
+		<info name="sms" type="mutiple">
+			<datas>
+				<data id="result">
+					<path value="pageMap" type="single" index=""/>
+					<path value="result" type="mutiple" index=""/>
+				</data>
+			</datas>
+			<attributes>
+				<attribute dataid="result" target="start_time" source="smsdate+ +smstime"/>
+				<attribute dataid="result" target="place" source="homearea"/>
+				<attribute dataid="result" target="other_cell_phone" source="othernum"/>
+				<attribute dataid="result" target="subtotal" source="fee"/>
+			</attributes>
+			<page attribute="totalPages">
+				<path value="pageMap" type="single" index=""/>
+			</page>
+		</info>
+		
+		<!-- 基本数据 (common) -->
+		<info name="basic" type="single">
+			<datas>
+				<data id="userInfo">
+					<path value="userInfo" type="single" index=""/>
+				</data>
+			</datas>
+			<attributes>
+				<attribute dataid="userInfo" target="cell_phone" source="usernumber"/>
+				<attribute dataid="userInfo" target="idcard" source="certnum"/>
+				<attribute dataid="userInfo" target="real_name" source="custName"/>
+				<attribute dataid="userInfo" target="reg_time" source="opendate"/>
+			</attributes>
+		</info>
+		
+		<!-- 账单数据 (common) -->
+		<info name="bill" type="mutiple">
+			<datas>
+				<data id="result">
+					<path value="result" type="single" index=""/>
+					<path value="result" type="mutiple" index=""/>
+				</data>
+				<data id="fee">
+					<path value="result" type="single" index=""/>
+					<path value="billinfo" type="mutiple" index="0"/>
+				</data>
+			</datas>
+			<attributes>
+				<attribute dataid="result" target="bill_cycle" source="cycleid"/>
+				<attribute dataid="result" target="cellphone" source="serialnumber"/>
+				<attribute dataid="result" target="pay_amt" source="balance"/>
+				<attribute dataid="result" target="totalamt" source="allfee"/>
+			</attributes>
+		</info>
+		
+		<!-- 通话数据 (common) -->
+		<info name="call" type="mutiple">
+			<datas>
+				<data id="result">
+					<path value="pageMap" type="single" index=""/>
+					<path value="result" type="mutiple" index=""/>
+				</data>
+			</datas>
+			<attributes>
+				<attribute dataid="result" target="call_type" source="landtype"/>
+				<attribute dataid="result" target="initType" source="calltypeName"/>
+				<attribute dataid="result" target="other_cell_phone" source="othernum"/>
+				<attribute dataid="result" target="place" source="homeareaName"/>
+				<attribute dataid="result" target="start_time" source="calldate+  +calltime"/>
+				<attribute dataid="result" target="subtotal" source="totalfee"/>
+				<attribute dataid="result" target="use_time" source="calllonghour"/>
+			</attributes>
+			<page attribute="totalPages">
+				<path value="pageMap" type="single" index=""/>
+			</page>
+		</info>
+		
+		<!-- 上网数据 (common) -->
+		<info name="net" type="mutiple">
+			<datas>
+				<data id="result">
+					<path value="pagelist" type="mutiple" index=""/>
+				</data>
+			</datas>
+			<attributes>
+				<attribute dataid="result" target="start_time" source="begindateformat+ +begintimeformat"/>
+				<attribute dataid="result" target="net_type" source="nettyepformat"/>
+				<attribute dataid="result" target="subflow" source="fee"/>
+				<attribute dataid="result" target="subtotal" source="pertotalsm"/>
+				<attribute dataid="result" target="use_time" source="longhour"/>
+				<attribute dataid="result" target="place" source="homearea"/>
+			</attributes>
+			<page attribute="totalpage" />
+		</info>
+	</infos>
+	
+	<!-- <template>
+		<node key="status" value="status"/>
+		<node key="msg" value="msg"/>
+		<node key="data">
+			<node key="datachild1">
+				<node key="datachild2" value="sms"/>
+			</node>
+		</node>
+	</template> -->
+</result>
